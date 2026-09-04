@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <h1>Мої завдання</h1>
+      <form id="task-form">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="нове завдання..."
+          autocomplete="off"
+        />
+        <button type="submit">Додати</button>
+      </form>
+      <ul id="task-list"></ul>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
