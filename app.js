@@ -10,9 +10,8 @@ function render(task) {
   taskList.innerHTML = ""; // очищаємо список перед рендером
   tasks.forEach((task) => {
     const li = document.createElement("li"); // створюємо елемент списку
-
-    const span = document.createElement("span"); // створюємо елемент для кнопки видалення
-    span.textContent = task.text; // додаємо текст кнопки видалення
+    const span = document.createElement("span"); // створюємо елемент span для тексту завдання
+    span.textContent = task.text; // встановлюємо текст завдання
     if (task.completed) {
       span.style.textDecoration = "line-through";
     } // якщо завдання виконане, додаємо лінію через текст
@@ -20,7 +19,7 @@ function render(task) {
       startEdit(task.id, span);
     }); // додаємо обробник події для кнопки видалення
     const doneBtn = document.createElement("button"); // створюємо кнопку "Виконано"
-    doneBtn.textContent = "✔";
+    doneBtn.textContent = "✅";
     doneBtn.addEventListener("click", () => toggleCompleted(task.id)); // додаємо обробник події для кнопки "Виконано"
 
     const deleteBtn = document.createElement("button"); // створюємо кнопку "Видалити"
@@ -39,6 +38,7 @@ function startEdit(id, spanElement) {
   const task = tasks.find((t) => t.id === id); // знаходимо завдання за id
   const editInput = document.createElement("input"); // створюємо інпут для редагування
   editInput.type = "text"; // встановлюємо тип інпуту
+  editInput.className = "edit-input"; // додаємо клас для стилізації
   editInput.value = task.text; // встановлюємо значення інпуту рівним тексту завдання
   spanElement.replaceWith(editInput); // замінюємо span на інпут
   editInput.focus(); // встановлюємо фокус на інпут
